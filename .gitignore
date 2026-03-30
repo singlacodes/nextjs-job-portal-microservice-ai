@@ -1,0 +1,25 @@
+# Node modules (all services + frontend)
+node_modules/
+**/node_modules/
+
+# Build output
+dist/
+**/dist/
+
+# Env files
+.env
+**/.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+
+# VS Code
+.vscode/
+
+# TypeScript
+*.tsbuildinfo
