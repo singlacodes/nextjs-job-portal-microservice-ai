@@ -69,6 +69,8 @@ export const registerUser = TryCatch(async (req, res, next) => {
   });
 });
 
+
+
 export const loginUser = TryCatch(async (req, res, next) => {
   const { email, password } = req.body;
 
