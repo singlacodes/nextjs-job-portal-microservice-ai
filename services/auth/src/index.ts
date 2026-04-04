@@ -1,7 +1,19 @@
 import app from "./app.js";
 import dotenv from "dotenv";
 import { sql } from "./utils/db.js";
+import { createClient } from "redis";
+
 dotenv.config();
+
+export const redisClient = createClient({
+  url: process.env.Redis_url,
+});
+
+redisClient
+  .connect()
+  .then(() => console.log("connected to redis"))
+  .catch(console.error);
+
 async function initDb() {
   try {
     await sql`
@@ -55,7 +67,7 @@ async function initDb() {
 initDb().then(() => {
   app.listen(process.env.PORT, () => {
     console.log(
-      `✅Auth service is running on http://localhost:${process.env.PORT}`
+      `Auth service is running on http://localhost:${process.env.PORT}`
     );
   });
 });
